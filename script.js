@@ -16,21 +16,17 @@ sendInput.addEventListener('keydown', function(event) {
         const itemText = sendInput.value;
         const newItem = document.createElement('p');
 
-        newItem.classList.add('items', 'item');
+        newItem.classList.add('items');
         newItem.textContent = itemText;
 
         if (itemText != '') {
             itemsList.append(newItem);
         }
 
+        newItem.addEventListener('click', function() {
+            newItem.classList.toggle('done');
+        })
+
         sendInput.value = '';
     }
 });
-
-const elements = document.querySelectorAll('.item');
-
-for (let item of elements) {
-    item.addEventListener('click', function() {
-        item.classList.toggle('done');
-    });
-}
